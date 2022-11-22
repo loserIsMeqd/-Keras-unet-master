@@ -81,4 +81,7 @@ def Unet(input_shape=(512, 512, 3), num_classes=21, backbone='vgg'):
     return model
 
 
+if __name__ == "__main__":
+    model = Unet()
+    model.summary()
     

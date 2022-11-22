@@ -72,19 +72,19 @@ from keras.models import Model
 
 #注意自己玩的时候要注意用np.random.random([10, 512, 512 ,3])  或者用reshape重新裁剪一下
 
-x = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
-# 这里是三维度空间中的二维
-inputs = layers.Input(shape=(2, 2, 1))
-out = layers.UpSampling2D(size=(2, 2))(inputs)
-model = Model(inputs, out)
-model.summary()
-y = model.predict (np.reshape(x, (2, 2, 2, 1)))
-y = np.reshape(y, (8, 4))
-print('input:')
-print(x)
-print(np.reshape(x, (2, 2, 2, 1)))
-print('output:')
-print(y)
+# x = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+# # 这里是三维度空间中的二维
+# inputs = layers.Input(shape=(2, 2, 1))
+# out = layers.UpSampling2D(size=(2, 2))(inputs)
+# model = Model(inputs, out)
+# model.summary()
+# y = model.predict (np.reshape(x, (2, 2, 2, 1)))
+# y = np.reshape(y, (8, 4))
+# print('input:')
+# print(x)
+# print(np.reshape(x, (2, 2, 2, 1)))
+# print('output:')
+# print(y)
 # 以下为日志结果：
 # input:
 # [[[1 2]
@@ -109,3 +109,14 @@ print(y)
 # 阿斯蒂芬撒地方
 # 哦加哦
 # OK破
+# 科学计数法的实现
+a = 1e-5
+print(a)
+
+import numpy as np
+
+# 用resize修剪图片的尺寸 使其满足网络的输入要求
+# 利用元组作为参数，以免和列表这种数据形式冲突，以为数组大多都为列表
+a = np.array([1,2,3,4,5,6,7,8,9,10])
+a = a.reshape((2,5))
+print(a)
